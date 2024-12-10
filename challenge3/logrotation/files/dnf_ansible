@@ -1,0 +1,7 @@
+/var/log/hawkey.log {
+    missingok
+    notifempty
+    yearly
+    create 0600 root root
+    maxsize 30k
+}

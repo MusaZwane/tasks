@@ -1,0 +1,38 @@
+---
+# tasks file for logrotation
+
+- name: Check if logrotate has been installed already
+  ansible.builtin.package:
+    name: logrotate
+    state: present
+  check_mode: true
+  register: logrotate_installed
+
+- name: Install logrotate package
+  ansible.builtin.package:
+    name: logrotate
+    state: installed
+    update_cache: true
+  when: logrotate_installed is not succeeded
+
+- name: Create a backup directory for existing configs
+  file:
+    path: /etc/log_backup
+    state: directory
+
+- name: Copy dnf and syslog file
+  copy: 
+    src: "{{ LOGROTATION_PATH }}/{{ item }}"
+    path: /etc/log_backup
+  loop:
+  - dnf
+  - syslog
+  ignore_errors: yes
+
+- name: Copy the customized configs to logrotate.d
+  copy:
+    src: "{{ item }}"
+    dest: "{{ LOGROTATION_PATH }}"
+  loop:
+  - dnf_ansible
+  - rsyslog_ansible

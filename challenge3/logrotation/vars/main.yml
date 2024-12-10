@@ -1,0 +1,4 @@
+---
+# vars file for logrotation
+
+LOGROTATION_PATH: "/etc/logrotate.d"

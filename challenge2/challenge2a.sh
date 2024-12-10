@@ -1,9 +1,9 @@
 #!/bin/bash
 
-##PATH=/etc/sysconfig/iptables
-PATH=/etc/challenge
+##IPTABLES_PATH=/etc/sysconfig/iptables
+IPTABLES_PATH=/etc/challenge
 
-if [ ! -f $PATH ]; then
+if [ ! -f $IPTABLES_PATH ]; then
 	echo "The file does not exist, Maybe look at installing the iptables"
  else
 	 exit 0

@@ -1,16 +1,16 @@
-## Tasks
+## Quick-Guide
 
 
-### Challenge1
+#### Challenge1
 
 - The rpm has been attached as a release.
 
 
-### Challenge2
+#### Challenge2
 
 - Three scripts have been created.
 
 
-### Challenge3
+#### Challenge3
 
 - The role has been under the respective folder.
